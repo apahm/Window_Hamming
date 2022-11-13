@@ -1,0 +1,1125 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xFC845DF6BE49A204",
+      "device": "xc7vx485tffg1761-2",
+      "name": "design_1",
+      "synth_flow_mode": "None",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "fix_to_float_re": "",
+      "fix_to_float_im": "",
+      "c_counter_binary_0": "",
+      "fix_float_counter": "",
+      "mult_2PI_div_N": "",
+      "subtract_0_54": "",
+      "cordic_0": "",
+      "log_1": "",
+      "float_to_fix_before_cordic": "",
+      "fixed_to_float_after_cordic": "",
+      "re_mult": "",
+      "im_mult": "",
+      "util_vector_logic_0": "",
+      "subtrackt_054": "",
+      "mult_0_46": "",
+      "util_vector_logic_1": "",
+      "util_vector_logic_2": "",
+      "cont_mult_0_46": "",
+      "const_PI_Div_N": "",
+      "fifo_generator_0": "",
+      "fifo_generator_1": "",
+      "mult_cos_cos": "",
+      "util_vector_logic_3": "",
+      "cos_cos_mult_2": "",
+      "util_vector_logic_4": "",
+      "cos_cos_minus_1": "",
+      "f_1": ""
+    },
+    "ports": {
+      "aresetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "aclk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "aresetn:s_axis_last"
+          },
+          "CLK_DOMAIN": {
+            "value": "design_1_aclk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "10000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "s_axis_tvalid": {
+        "direction": "I"
+      },
+      "s_axis_last": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "s_axis_ready": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "s_axis_tdata_re": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "s_axis_tdata_im": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      }
+    },
+    "components": {
+      "fix_to_float_re": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_0_0",
+        "parameters": {
+          "A_Precision_Type": {
+            "value": "Custom"
+          },
+          "C_A_Exponent_Width": {
+            "value": "16"
+          },
+          "C_A_Fraction_Width": {
+            "value": "0"
+          },
+          "C_Accum_Input_Msb": {
+            "value": "32"
+          },
+          "C_Accum_Lsb": {
+            "value": "-31"
+          },
+          "C_Accum_Msb": {
+            "value": "32"
+          },
+          "C_Latency": {
+            "value": "7"
+          },
+          "C_Mult_Usage": {
+            "value": "No_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Has_A_TLAST": {
+            "value": "false"
+          },
+          "Operation_Type": {
+            "value": "Fixed_to_float"
+          },
+          "RESULT_TLAST_Behv": {
+            "value": "Null"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "fix_to_float_im": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_1_0",
+        "parameters": {
+          "A_Precision_Type": {
+            "value": "Custom"
+          },
+          "C_A_Exponent_Width": {
+            "value": "16"
+          },
+          "C_Accum_Input_Msb": {
+            "value": "32"
+          },
+          "C_Accum_Lsb": {
+            "value": "-31"
+          },
+          "C_Accum_Msb": {
+            "value": "32"
+          },
+          "C_Latency": {
+            "value": "7"
+          },
+          "C_Mult_Usage": {
+            "value": "No_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Fixed_to_float"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "c_counter_binary_0": {
+        "vlnv": "xilinx.com:ip:c_counter_binary:12.0",
+        "xci_name": "design_1_c_counter_binary_0_0",
+        "parameters": {
+          "CE": {
+            "value": "true"
+          },
+          "Load": {
+            "value": "false"
+          },
+          "SCLR": {
+            "value": "true"
+          }
+        }
+      },
+      "fix_float_counter": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_2_1",
+        "parameters": {
+          "A_Precision_Type": {
+            "value": "Custom"
+          },
+          "C_A_Exponent_Width": {
+            "value": "16"
+          },
+          "C_Accum_Input_Msb": {
+            "value": "32"
+          },
+          "C_Accum_Lsb": {
+            "value": "-31"
+          },
+          "C_Accum_Msb": {
+            "value": "32"
+          },
+          "C_Latency": {
+            "value": "7"
+          },
+          "C_Mult_Usage": {
+            "value": "No_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Fixed_to_float"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "mult_2PI_div_N": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_4_0",
+        "parameters": {
+          "C_Latency": {
+            "value": "9"
+          },
+          "C_Mult_Usage": {
+            "value": "Full_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Multiply"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "subtract_0_54": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_3_3",
+        "parameters": {
+          "Add_Sub_Value": {
+            "value": "Subtract"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          }
+        }
+      },
+      "cordic_0": {
+        "vlnv": "xilinx.com:ip:cordic:6.0",
+        "xci_name": "design_1_cordic_0_0",
+        "parameters": {
+          "ARESETN": {
+            "value": "true"
+          },
+          "Data_Format": {
+            "value": "SignedFraction"
+          },
+          "Functional_Selection": {
+            "value": "Sin_and_Cos"
+          },
+          "Input_Width": {
+            "value": "32"
+          },
+          "Output_Width": {
+            "value": "32"
+          },
+          "flow_control": {
+            "value": "Blocking"
+          },
+          "out_tlast_behv": {
+            "value": "Pass_Phase_TLAST"
+          },
+          "out_tready": {
+            "value": "true"
+          },
+          "phase_has_tlast": {
+            "value": "true"
+          }
+        }
+      },
+      "log_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_0"
+      },
+      "float_to_fix_before_cordic": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_6_0",
+        "parameters": {
+          "C_Latency": {
+            "value": "7"
+          },
+          "C_Mult_Usage": {
+            "value": "No_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "3"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "29"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Has_A_TLAST": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Float_to_fixed"
+          },
+          "RESULT_TLAST_Behv": {
+            "value": "Pass_A_TLAST"
+          },
+          "Result_Precision_Type": {
+            "value": "Custom"
+          }
+        }
+      },
+      "fixed_to_float_after_cordic": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_7_0",
+        "parameters": {
+          "A_Precision_Type": {
+            "value": "Custom"
+          },
+          "C_A_Exponent_Width": {
+            "value": "2"
+          },
+          "C_A_Fraction_Width": {
+            "value": "30"
+          },
+          "C_Accum_Input_Msb": {
+            "value": "0"
+          },
+          "C_Accum_Lsb": {
+            "value": "-1"
+          },
+          "C_Accum_Msb": {
+            "value": "32"
+          },
+          "C_Latency": {
+            "value": "7"
+          },
+          "C_Mult_Usage": {
+            "value": "No_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Has_A_TLAST": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Fixed_to_float"
+          },
+          "RESULT_TLAST_Behv": {
+            "value": "Pass_A_TLAST"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "re_mult": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_5_0",
+        "parameters": {
+          "C_Latency": {
+            "value": "9"
+          },
+          "C_Mult_Usage": {
+            "value": "Full_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Multiply"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "im_mult": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_8_0",
+        "parameters": {
+          "C_Latency": {
+            "value": "9"
+          },
+          "C_Mult_Usage": {
+            "value": "Full_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Multiply"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "design_1_util_vector_logic_0_0",
+        "parameters": {
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "subtrackt_054": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_1",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0x3f09d1f6"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "mult_0_46": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_2_2",
+        "parameters": {
+          "C_Latency": {
+            "value": "9"
+          },
+          "C_Mult_Usage": {
+            "value": "Full_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Multiply"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "util_vector_logic_1": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "design_1_util_vector_logic_1_0",
+        "parameters": {
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "util_vector_logic_2": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "design_1_util_vector_logic_2_0",
+        "parameters": {
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "cont_mult_0_46": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_2",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0x3eec5c14"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "const_PI_Div_N": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_3",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0x3c49d9b4"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "fifo_generator_0": {
+        "vlnv": "xilinx.com:ip:fifo_generator:13.2",
+        "xci_name": "design_1_fifo_generator_0_0",
+        "parameters": {
+          "Clock_Type_AXI": {
+            "value": "Common_Clock"
+          },
+          "Enable_Data_Counts_axis": {
+            "value": "false"
+          },
+          "Enable_Safety_Circuit": {
+            "value": "true"
+          },
+          "Enable_TLAST": {
+            "value": "true"
+          },
+          "FIFO_Implementation_axis": {
+            "value": "Common_Clock_Block_RAM"
+          },
+          "FIFO_Implementation_rach": {
+            "value": "Common_Clock_Distributed_RAM"
+          },
+          "FIFO_Implementation_rdch": {
+            "value": "Common_Clock_Block_RAM"
+          },
+          "FIFO_Implementation_wach": {
+            "value": "Common_Clock_Distributed_RAM"
+          },
+          "FIFO_Implementation_wdch": {
+            "value": "Common_Clock_Block_RAM"
+          },
+          "FIFO_Implementation_wrch": {
+            "value": "Common_Clock_Distributed_RAM"
+          },
+          "Full_Flags_Reset_Value": {
+            "value": "1"
+          },
+          "INTERFACE_TYPE": {
+            "value": "AXI_STREAM"
+          },
+          "Input_Depth_axis": {
+            "value": "256"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "4"
+          },
+          "TUSER_WIDTH": {
+            "value": "0"
+          }
+        }
+      },
+      "fifo_generator_1": {
+        "vlnv": "xilinx.com:ip:fifo_generator:13.2",
+        "xci_name": "design_1_fifo_generator_1_0",
+        "parameters": {
+          "Enable_Safety_Circuit": {
+            "value": "true"
+          },
+          "Enable_TLAST": {
+            "value": "true"
+          },
+          "FIFO_Implementation_rach": {
+            "value": "Common_Clock_Distributed_RAM"
+          },
+          "FIFO_Implementation_wach": {
+            "value": "Common_Clock_Distributed_RAM"
+          },
+          "FIFO_Implementation_wrch": {
+            "value": "Common_Clock_Distributed_RAM"
+          },
+          "Full_Flags_Reset_Value": {
+            "value": "1"
+          },
+          "INTERFACE_TYPE": {
+            "value": "AXI_STREAM"
+          },
+          "Input_Depth_axis": {
+            "value": "256"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "4"
+          },
+          "TUSER_WIDTH": {
+            "value": "0"
+          }
+        }
+      },
+      "mult_cos_cos": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_0_1",
+        "parameters": {
+          "C_Latency": {
+            "value": "9"
+          },
+          "C_Mult_Usage": {
+            "value": "Full_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Has_A_TLAST": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Multiply"
+          },
+          "RESULT_TLAST_Behv": {
+            "value": "Pass_A_TLAST"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "util_vector_logic_3": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "design_1_util_vector_logic_3_0",
+        "parameters": {
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "cos_cos_mult_2": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_0_2",
+        "parameters": {
+          "Add_Sub_Value": {
+            "value": "Add"
+          },
+          "C_Latency": {
+            "value": "12"
+          },
+          "C_Mult_Usage": {
+            "value": "Full_Usage"
+          },
+          "C_Rate": {
+            "value": "1"
+          },
+          "C_Result_Exponent_Width": {
+            "value": "8"
+          },
+          "C_Result_Fraction_Width": {
+            "value": "24"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Has_A_TLAST": {
+            "value": "true"
+          },
+          "Operation_Type": {
+            "value": "Add_Subtract"
+          },
+          "RESULT_TLAST_Behv": {
+            "value": "Pass_A_TLAST"
+          },
+          "Result_Precision_Type": {
+            "value": "Single"
+          }
+        }
+      },
+      "util_vector_logic_4": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "design_1_util_vector_logic_4_0",
+        "parameters": {
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "cos_cos_minus_1": {
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "xci_name": "design_1_floating_point_0_3",
+        "parameters": {
+          "Add_Sub_Value": {
+            "value": "Subtract"
+          },
+          "C_Latency": {
+            "value": "12"
+          },
+          "C_Mult_Usage": {
+            "value": "Full_Usage"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Has_A_TLAST": {
+            "value": "true"
+          },
+          "RESULT_TLAST_Behv": {
+            "value": "Pass_A_TLAST"
+          }
+        }
+      },
+      "f_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_4",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0x3f800000"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "floating_point_2_M_AXIS_RESULT1": {
+        "interface_ports": [
+          "mult_0_46/M_AXIS_RESULT",
+          "subtract_0_54/S_AXIS_B"
+        ]
+      },
+      "floating_point_4_M_AXIS_RESULT": {
+        "interface_ports": [
+          "float_to_fix_before_cordic/S_AXIS_A",
+          "mult_2PI_div_N/M_AXIS_RESULT"
+        ]
+      },
+      "fix_to_float_im_M_AXIS_RESULT": {
+        "interface_ports": [
+          "fix_to_float_im/M_AXIS_RESULT",
+          "fifo_generator_0/S_AXIS"
+        ]
+      },
+      "fifo_generator_1_M_AXIS": {
+        "interface_ports": [
+          "fifo_generator_1/M_AXIS",
+          "re_mult/S_AXIS_B"
+        ]
+      },
+      "floating_point_2_M_AXIS_RESULT": {
+        "interface_ports": [
+          "fix_float_counter/M_AXIS_RESULT",
+          "mult_2PI_div_N/S_AXIS_A"
+        ]
+      },
+      "cordic_0_M_AXIS_DOUT": {
+        "interface_ports": [
+          "cordic_0/M_AXIS_DOUT",
+          "fixed_to_float_after_cordic/S_AXIS_A"
+        ]
+      },
+      "fix_to_float_re_M_AXIS_RESULT": {
+        "interface_ports": [
+          "fix_to_float_re/M_AXIS_RESULT",
+          "fifo_generator_1/S_AXIS"
+        ]
+      },
+      "floating_point_6_M_AXIS_RESULT": {
+        "interface_ports": [
+          "float_to_fix_before_cordic/M_AXIS_RESULT",
+          "cordic_0/S_AXIS_PHASE"
+        ]
+      },
+      "fifo_generator_0_M_AXIS": {
+        "interface_ports": [
+          "fifo_generator_0/M_AXIS",
+          "im_mult/S_AXIS_B"
+        ]
+      },
+      "cos_cos_minus_1_M_AXIS_RESULT": {
+        "interface_ports": [
+          "mult_0_46/S_AXIS_A",
+          "cos_cos_minus_1/M_AXIS_RESULT"
+        ]
+      },
+      "cos_cos_mult_2_M_AXIS_RESULT": {
+        "interface_ports": [
+          "cos_cos_minus_1/S_AXIS_A",
+          "cos_cos_mult_2/M_AXIS_RESULT"
+        ]
+      }
+    },
+    "nets": {
+      "Net": {
+        "ports": [
+          "aresetn",
+          "fix_to_float_im/aresetn",
+          "fix_to_float_re/aresetn",
+          "fix_float_counter/aresetn",
+          "float_to_fix_before_cordic/aresetn",
+          "mult_2PI_div_N/aresetn",
+          "cordic_0/aresetn",
+          "fixed_to_float_after_cordic/aresetn",
+          "subtract_0_54/aresetn",
+          "re_mult/aresetn",
+          "mult_0_46/aresetn",
+          "im_mult/aresetn",
+          "fifo_generator_1/s_aresetn",
+          "fifo_generator_0/s_aresetn",
+          "mult_cos_cos/aresetn",
+          "cos_cos_mult_2/aresetn",
+          "cos_cos_minus_1/aresetn"
+        ]
+      },
+      "aclk_1": {
+        "ports": [
+          "aclk",
+          "fix_to_float_im/aclk",
+          "fix_to_float_re/aclk",
+          "c_counter_binary_0/CLK",
+          "fix_float_counter/aclk",
+          "mult_2PI_div_N/aclk",
+          "float_to_fix_before_cordic/aclk",
+          "cordic_0/aclk",
+          "fixed_to_float_after_cordic/aclk",
+          "re_mult/aclk",
+          "subtract_0_54/aclk",
+          "mult_0_46/aclk",
+          "im_mult/aclk",
+          "fifo_generator_1/s_aclk",
+          "fifo_generator_0/s_aclk",
+          "mult_cos_cos/aclk",
+          "cos_cos_mult_2/aclk",
+          "cos_cos_minus_1/aclk"
+        ]
+      },
+      "c_counter_binary_0_Q": {
+        "ports": [
+          "c_counter_binary_0/Q",
+          "fix_float_counter/s_axis_a_tdata"
+        ]
+      },
+      "log_1_dout": {
+        "ports": [
+          "log_1/dout",
+          "mult_2PI_div_N/s_axis_b_tvalid",
+          "subtract_0_54/s_axis_a_tvalid",
+          "mult_0_46/s_axis_b_tvalid",
+          "im_mult/m_axis_result_tready",
+          "re_mult/m_axis_result_tready",
+          "cos_cos_minus_1/s_axis_b_tvalid"
+        ]
+      },
+      "floating_point_3_m_axis_result_tdata": {
+        "ports": [
+          "subtract_0_54/m_axis_result_tdata",
+          "im_mult/s_axis_a_tdata",
+          "re_mult/s_axis_a_tdata"
+        ]
+      },
+      "floating_point_3_m_axis_result_tvalid": {
+        "ports": [
+          "subtract_0_54/m_axis_result_tvalid",
+          "im_mult/s_axis_a_tvalid",
+          "re_mult/s_axis_a_tvalid"
+        ]
+      },
+      "floating_point_8_s_axis_a_tready": {
+        "ports": [
+          "im_mult/s_axis_a_tready",
+          "util_vector_logic_0/Op2"
+        ]
+      },
+      "floating_point_5_s_axis_a_tready": {
+        "ports": [
+          "re_mult/s_axis_a_tready",
+          "util_vector_logic_0/Op1"
+        ]
+      },
+      "util_vector_logic_0_Res": {
+        "ports": [
+          "util_vector_logic_0/Res",
+          "subtract_0_54/m_axis_result_tready"
+        ]
+      },
+      "subtrackt_054_dout": {
+        "ports": [
+          "subtrackt_054/dout",
+          "subtract_0_54/s_axis_a_tdata"
+        ]
+      },
+      "s_axis_a_tvalid_1": {
+        "ports": [
+          "s_axis_tvalid",
+          "fix_to_float_im/s_axis_a_tvalid",
+          "fix_to_float_re/s_axis_a_tvalid",
+          "util_vector_logic_2/Op2",
+          "fix_float_counter/s_axis_a_tvalid"
+        ]
+      },
+      "last_1": {
+        "ports": [
+          "s_axis_last",
+          "c_counter_binary_0/SCLR"
+        ]
+      },
+      "floating_point_0_s_axis_a_tready": {
+        "ports": [
+          "fix_to_float_re/s_axis_a_tready",
+          "util_vector_logic_1/Op1"
+        ]
+      },
+      "floating_point_1_s_axis_a_tready": {
+        "ports": [
+          "fix_to_float_im/s_axis_a_tready",
+          "util_vector_logic_1/Op2"
+        ]
+      },
+      "util_vector_logic_1_Res": {
+        "ports": [
+          "util_vector_logic_1/Res",
+          "s_axis_ready",
+          "util_vector_logic_2/Op1"
+        ]
+      },
+      "s_axis_tdata_re_1": {
+        "ports": [
+          "s_axis_tdata_re",
+          "fix_to_float_re/s_axis_a_tdata"
+        ]
+      },
+      "s_axis_tdata_im_1": {
+        "ports": [
+          "s_axis_tdata_im",
+          "fix_to_float_im/s_axis_a_tdata"
+        ]
+      },
+      "util_vector_logic_2_Res": {
+        "ports": [
+          "util_vector_logic_2/Res",
+          "c_counter_binary_0/CE"
+        ]
+      },
+      "cont_mult_0_46_dout": {
+        "ports": [
+          "cont_mult_0_46/dout",
+          "mult_0_46/s_axis_b_tdata"
+        ]
+      },
+      "const_2PI_Div_N_dout": {
+        "ports": [
+          "const_PI_Div_N/dout",
+          "mult_2PI_div_N/s_axis_b_tdata"
+        ]
+      },
+      "fixed_to_float_after_cordic_m_axis_result_tdata": {
+        "ports": [
+          "fixed_to_float_after_cordic/m_axis_result_tdata",
+          "mult_cos_cos/s_axis_a_tdata",
+          "mult_cos_cos/s_axis_b_tdata"
+        ]
+      },
+      "fixed_to_float_after_cordic_m_axis_result_tvalid": {
+        "ports": [
+          "fixed_to_float_after_cordic/m_axis_result_tvalid",
+          "mult_cos_cos/s_axis_b_tvalid",
+          "mult_cos_cos/s_axis_a_tvalid"
+        ]
+      },
+      "floating_point_0_s_axis_a_tready1": {
+        "ports": [
+          "mult_cos_cos/s_axis_a_tready",
+          "util_vector_logic_3/Op2"
+        ]
+      },
+      "floating_point_0_s_axis_b_tready": {
+        "ports": [
+          "mult_cos_cos/s_axis_b_tready",
+          "util_vector_logic_3/Op1"
+        ]
+      },
+      "util_vector_logic_3_Res": {
+        "ports": [
+          "util_vector_logic_3/Res",
+          "fixed_to_float_after_cordic/m_axis_result_tready"
+        ]
+      },
+      "fixed_to_float_after_cordic_m_axis_result_tlast": {
+        "ports": [
+          "fixed_to_float_after_cordic/m_axis_result_tlast",
+          "mult_cos_cos/s_axis_a_tlast"
+        ]
+      },
+      "mult_cos_cos_m_axis_result_tdata": {
+        "ports": [
+          "mult_cos_cos/m_axis_result_tdata",
+          "cos_cos_mult_2/s_axis_a_tdata",
+          "cos_cos_mult_2/s_axis_b_tdata"
+        ]
+      },
+      "mult_cos_cos_m_axis_result_tvalid": {
+        "ports": [
+          "mult_cos_cos/m_axis_result_tvalid",
+          "cos_cos_mult_2/s_axis_b_tvalid",
+          "cos_cos_mult_2/s_axis_a_tvalid"
+        ]
+      },
+      "mult_cos_cos_m_axis_result_tlast": {
+        "ports": [
+          "mult_cos_cos/m_axis_result_tlast",
+          "cos_cos_mult_2/s_axis_a_tlast"
+        ]
+      },
+      "util_vector_logic_4_Res": {
+        "ports": [
+          "util_vector_logic_4/Res",
+          "mult_cos_cos/m_axis_result_tready"
+        ]
+      },
+      "cos_cos_mult_2_s_axis_b_tready": {
+        "ports": [
+          "cos_cos_mult_2/s_axis_b_tready",
+          "util_vector_logic_4/Op2"
+        ]
+      },
+      "cos_cos_mult_2_s_axis_a_tready": {
+        "ports": [
+          "cos_cos_mult_2/s_axis_a_tready",
+          "util_vector_logic_4/Op1"
+        ]
+      },
+      "f_1_dout": {
+        "ports": [
+          "f_1/dout",
+          "cos_cos_minus_1/s_axis_b_tdata"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Nov 13 11:00:57 2022
+# Process ID: 4048
+# Current directory: C:/win_ham
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9628 C:\win_ham\win_ham.xpr
+# Log file: C:/win_ham/vivado.log
+# Journal file: C:/win_ham\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/win_ham/win_ham.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/win_ham/win_ham.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_intf_nets fixed_to_float_after_cordic_M_AXIS_RESULT]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:floating_point:7.1 floating_point_0
+endgroup
+set_property -dict [list CONFIG.Operation_Type {Multiply} CONFIG.C_Mult_Usage {Full_Usage} CONFIG.Has_ARESETn {true} CONFIG.Has_A_TLAST {true} CONFIG.Result_Precision_Type {Single} CONFIG.C_Result_Exponent_Width {8} CONFIG.C_Result_Fraction_Width {24} CONFIG.C_Latency {9} CONFIG.C_Rate {1} CONFIG.RESULT_TLAST_Behv {Pass_A_TLAST}] [get_bd_cells floating_point_0]
+set_property location {8 2512 650} [get_bd_cells floating_point_0]
+connect_bd_net [get_bd_ports aresetn] [get_bd_pins floating_point_0/aresetn]
+connect_bd_net [get_bd_ports aclk] [get_bd_pins floating_point_0/aclk]
+connect_bd_intf_net [get_bd_intf_pins floating_point_0/S_AXIS_B] [get_bd_intf_pins fixed_to_float_after_cordic/M_AXIS_RESULT]
+delete_bd_objs [get_bd_intf_nets fixed_to_float_after_cordic_M_AXIS_RESULT]
+connect_bd_net [get_bd_pins floating_point_0/s_axis_a_tdata] [get_bd_pins fixed_to_float_after_cordic/m_axis_result_tdata]
+connect_bd_net [get_bd_pins floating_point_0/s_axis_b_tdata] [get_bd_pins fixed_to_float_after_cordic/m_axis_result_tdata]
+connect_bd_net [get_bd_pins floating_point_0/s_axis_b_tvalid] [get_bd_pins fixed_to_float_after_cordic/m_axis_result_tvalid]
+connect_bd_net [get_bd_pins floating_point_0/s_axis_a_tvalid] [get_bd_pins fixed_to_float_after_cordic/m_axis_result_tvalid]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_3
+endgroup
+set_property -dict [list CONFIG.C_SIZE {1}] [get_bd_cells util_vector_logic_3]
+connect_bd_net [get_bd_pins floating_point_0/s_axis_a_tready] [get_bd_pins util_vector_logic_3/Op2]
+connect_bd_net [get_bd_pins floating_point_0/s_axis_b_tready] [get_bd_pins util_vector_logic_3/Op1]
+connect_bd_net [get_bd_pins util_vector_logic_3/Res] [get_bd_pins fixed_to_float_after_cordic/m_axis_result_tready]
+startgroup
+set_property -dict [list CONFIG.Has_A_TLAST {true} CONFIG.RESULT_TLAST_Behv {Pass_A_TLAST}] [get_bd_cells fixed_to_float_after_cordic]
+endgroup
+connect_bd_net [get_bd_pins fixed_to_float_after_cordic/m_axis_result_tlast] [get_bd_pins floating_point_0/s_axis_a_tlast]
+set_property name cos_cos [get_bd_cells floating_point_0]
+set_property name mult_cos_cos [get_bd_cells cos_cos]
+regenerate_bd_layout
+save_bd_design
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:floating_point:7.1 floating_point_0
+endgroup
+set_property -dict [list CONFIG.Operation_Type {Multiply} CONFIG.Has_ARESETn {true} CONFIG.Has_A_TLAST {true} CONFIG.Result_Precision_Type {Single} CONFIG.C_Result_Exponent_Width {8} CONFIG.C_Result_Fraction_Width {24} CONFIG.C_Mult_Usage {Full_Usage} CONFIG.C_Latency {9} CONFIG.C_Rate {1} CONFIG.RESULT_TLAST_Behv {Pass_A_TLAST}] [get_bd_cells floating_point_0]
+set_property location {10 3418 1133} [get_bd_cells floating_point_0]
+connect_bd_net [get_bd_ports aresetn] [get_bd_pins floating_point_0/aresetn]
+connect_bd_net [get_bd_ports aclk] [get_bd_pins floating_point_0/aclk]
+set_property name cos_cos [get_bd_cells floating_point_0]
+set_property name cos_cos_mult_2 [get_bd_cells cos_cos]
+save_bd_design
+startgroup
+set_property -dict [list CONFIG.Operation_Type {Add_Subtract} CONFIG.Add_Sub_Value {Add} CONFIG.Result_Precision_Type {Single} CONFIG.C_Result_Exponent_Width {8} CONFIG.C_Result_Fraction_Width {24} CONFIG.C_Mult_Usage {Full_Usage} CONFIG.C_Latency {12} CONFIG.C_Rate {1}] [get_bd_cells cos_cos_mult_2]
+endgroup
+set_property location {10.5 3610 1095} [get_bd_cells cos_cos_mult_2]
+connect_bd_net [get_bd_pins mult_cos_cos/m_axis_result_tdata] [get_bd_pins cos_cos_mult_2/s_axis_a_tdata]
+connect_bd_net [get_bd_pins cos_cos_mult_2/s_axis_b_tdata] [get_bd_pins mult_cos_cos/m_axis_result_tdata]
+connect_bd_net [get_bd_pins mult_cos_cos/m_axis_result_tvalid] [get_bd_pins cos_cos_mult_2/s_axis_b_tvalid]
+connect_bd_net [get_bd_pins cos_cos_mult_2/s_axis_a_tvalid] [get_bd_pins mult_cos_cos/m_axis_result_tvalid]
+connect_bd_net [get_bd_pins cos_cos_mult_2/s_axis_a_tlast] [get_bd_pins mult_cos_cos/m_axis_result_tlast]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_4
+endgroup
+set_property -dict [list CONFIG.C_SIZE {1}] [get_bd_cells util_vector_logic_4]
+connect_bd_net [get_bd_pins util_vector_logic_4/Res] [get_bd_pins mult_cos_cos/m_axis_result_tready]
+connect_bd_net [get_bd_pins util_vector_logic_4/Op2] [get_bd_pins cos_cos_mult_2/s_axis_b_tready]
+connect_bd_net [get_bd_pins util_vector_logic_4/Op1] [get_bd_pins cos_cos_mult_2/s_axis_a_tready]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:floating_point:7.1 floating_point_0
+endgroup
+set_property -dict [list CONFIG.Add_Sub_Value {Subtract} CONFIG.C_Mult_Usage {Full_Usage} CONFIG.Has_ARESETn {true} CONFIG.Has_A_TLAST {true} CONFIG.C_Latency {12} CONFIG.RESULT_TLAST_Behv {Pass_A_TLAST}] [get_bd_cells floating_point_0]
+connect_bd_net [get_bd_ports aresetn] [get_bd_pins floating_point_0/aresetn]
+connect_bd_net [get_bd_ports aclk] [get_bd_pins floating_point_0/aclk]
+connect_bd_intf_net [get_bd_intf_pins floating_point_0/S_AXIS_A] [get_bd_intf_pins cos_cos_mult_2/M_AXIS_RESULT]
+connect_bd_net [get_bd_pins floating_point_0/s_axis_b_tvalid] [get_bd_pins log_1/dout]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property name f_1 [get_bd_cells xlconstant_0]
+set_property -dict [list CONFIG.CONST_WIDTH {32} CONFIG.CONST_VAL {0x3f800000}] [get_bd_cells f_1]
+connect_bd_net [get_bd_pins f_1/dout] [get_bd_pins floating_point_0/s_axis_b_tdata]
+regenerate_bd_layout
+set_property name cos_cos_minus_1 [get_bd_cells floating_point_0]
+connect_bd_intf_net [get_bd_intf_pins mult_0_46/S_AXIS_A] [get_bd_intf_pins cos_cos_minus_1/M_AXIS_RESULT]
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+set_property location {10.5 4156 1131} [get_bd_cells mult_cos_cos]
+set_property location {10.5 4728 1091} [get_bd_cells cos_cos_mult_2]
+set_property location {11.5 5188 1132} [get_bd_cells cos_cos_minus_1]
+set_property location {12.5 5645 1127} [get_bd_cells mult_0_46]
+set_property location {13.5 6174 1148} [get_bd_cells subtract_0_54]
+set_property location {14.5 6756 1019} [get_bd_cells re_mult]
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.CONST_VAL {0x3c49d9b4}] [get_bd_cells const_2PI_Div_N]
+endgroup
+save_bd_design
+set_property name const_PI_Div_N [get_bd_cells const_2PI_Div_N]
+save_bd_design
+regenerate_bd_layout
+validate_bd_design
+generate_target all [get_files  C:/win_ham/win_ham.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files C:/win_ham/win_ham.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/win_ham/win_ham.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/win_ham/win_ham.ip_user_files/sim_scripts -ip_user_files_dir C:/win_ham/win_ham.ip_user_files -ipstatic_source_dir C:/win_ham/win_ham.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/win_ham/win_ham.cache/compile_simlib/modelsim} {questa=C:/win_ham/win_ham.cache/compile_simlib/questa} {riviera=C:/win_ham/win_ham.cache/compile_simlib/riviera} {activehdl=C:/win_ham/win_ham.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+open_wave_config C:/win_ham/ham_tb_behav.wcfg
+source ham_tb.tcl
+run 10 us
+open_bd_design {C:/win_ham/win_ham.srcs/sources_1/bd/design_1/design_1.bd}
+current_wave_config {ham_tb_behav.wcfg}
+add_wave {{/ham_tb/design_1_wrapper_inst/design_1_i/mult_cos_cos}} 
+current_wave_config {ham_tb_behav.wcfg}
+add_wave {{/ham_tb/design_1_wrapper_inst/design_1_i/cos_cos_mult_2}} 
+current_wave_config {ham_tb_behav.wcfg}
+add_wave {{/ham_tb/design_1_wrapper_inst/design_1_i/cos_cos_minus_1}} 
+relaunch_sim
+run 10 us
+save_wave_config {C:/win_ham/ham_tb_behav.wcfg}
+close_sim
+regenerate_bd_layout
+save_bd_design
